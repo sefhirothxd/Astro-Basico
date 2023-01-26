@@ -1,0 +1,10 @@
+---
+import Layout from '../components/Layout.astro';
+import Button from '../components/ButtonSubscribe';
+---
+
+<Layout pageTitle="Home" pageDescription="Esta es la pagina de inicio">
+  <h1>Pagina Home</h1>
+  <p>Bienvenido a mi blog</p>
+  <Button client:load />
+</Layout>

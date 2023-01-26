@@ -1,0 +1,17 @@
+---
+import Card from '../components/Card.astro';
+const posts = await fetch('https://jsonplaceholder.typicode.com/posts');
+const data = await posts.json();
+console.log(data);
+---
+
+<h1>posts</h1>
+
+{data.map((user) => <Card title={user.title} content={user.body} />)}
+
+<style>
+  body {
+    background-color: #202020;
+    color: white;
+  }
+</style>

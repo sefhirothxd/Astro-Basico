@@ -1,0 +1,37 @@
+---
+import Layout from '../../components/Layout.astro';
+const posts = await Astro.glob('./posts/*.md');
+console.log(
+  'aqui toy',
+  posts.map((post) => post.url)
+);
+
+import calle from '../../img/imgCalle.jpeg';
+---
+
+<Layout pageTitle="Blof de Desarrollo" pageDescription="tutoriales de desarrollo">
+  <h1>Blogs</h1>
+
+  <img width="100px" src={calle} alt="img " />
+
+  {
+    posts.map((post) => {
+      return (
+        <div>
+          <a class="link" href={post.url}>
+            {post.url.split('/').pop().split('.').shift()}
+          </a>
+        </div>
+      );
+    })
+  }
+
+  <style>
+    .link {
+      color: white;
+      text-decoration: none;
+      display: block;
+      margin: 1rem 0;
+    }
+  </style>
+</Layout>
